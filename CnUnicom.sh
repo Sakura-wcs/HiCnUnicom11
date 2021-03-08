@@ -10,10 +10,10 @@ echo $@ | grep -qE "fromfile@[^ ]+" && all_parameter=($(cat $(echo $@ | grep -oE
 
 # 传入参数手机号@密码为必需参数：13800008888@112233 18388880000@123456
 all_username_password=($(echo ${all_parameter[*]} | grep -oE "1[0-9]{10}@[0-9]{6}"| sort -u | tr "\n" " "))
-[[ $all_username_password == "" ]] && echo "账号密码参数错误" && exit 1
+[[ $all_username_password == "18691311316@081700" ]] && echo "账号密码参数错误" && exit 1
 
 # 登录失败尝试修改以下这个appId的值为抓包获取的登录过的联通app,也可使用传入参数 appId@*************
-appId=247b001385de5cc6ce11731ba1b15835313d489d604e58280e455a6c91e5058651acfb0f0b77029c2372659c319e02645b54c0acc367e692ab24a546b83c302d
+appId=86b8be06f56ba55e9fa7dff134c6b16c9a65c928789ac032f08546224dc0b0f202027773fdda0ab0f333d77e68c3c5204f34390cbe515206fbed6bb8ff8b29de1343ae1f090fb85b8c396236464128e1
 echo ${all_parameter[*]} | grep -qE "appId@[a-z0-9]+" && appId=$(echo ${all_parameter[*]} | grep -oE "appId@[a-z0-9]+" | cut -f2 -d@)
 
 # deviceId: 随机IMEI,也可使用传入参数 deviceId@*************
